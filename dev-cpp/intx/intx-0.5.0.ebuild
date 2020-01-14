@@ -7,11 +7,11 @@ inherit cmake-utils
 
 DESCRIPTION="Extended precision integer C++ library."
 HOMEPAGE="https://github.com/chfast/intx"
-SRC_URI="https://github.com/chfast/intx/archive/v0.5.0-dev.tar.gz"
+SRC_URI="https://github.com/chfast/intx/archive/v${PV}-dev.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="-test"
 
 DEPEND=""

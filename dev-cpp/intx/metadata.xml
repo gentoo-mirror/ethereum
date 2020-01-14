@@ -9,6 +9,6 @@
 <longdescription>Extended precision integer C++ library that provides
 	128, 256 and 512-bit integer types.</longdescription>
 <use>
-	<flag name="test">Prepare unit tests for the test phase</flag>
+	<flag name="test">Execute unit tests during the test phase</flag>
 </use>
 </pkgmetadata>
