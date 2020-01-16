@@ -3,7 +3,7 @@
 set -e -u -o pipefail
 
 REPO_NAME='ethereum'
-REPO_BRANCH='master'
+REPO_BRANCH='dev'
 
 running_in_docker() {
   awk -F/ '$2 == "docker"' /proc/self/cgroup | read
