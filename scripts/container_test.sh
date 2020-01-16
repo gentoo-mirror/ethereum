@@ -5,6 +5,8 @@ set -e -u -o pipefail
 REPO_NAME='ethereum'
 REPO_BRANCH='dev'
 
+PATTERN="$1"
+
 running_in_docker() {
   awk -F/ '$2 == "docker"' /proc/self/cgroup | read
 }
@@ -44,18 +46,20 @@ atom_use() {
     local ATOM=$1
     equery -qCN uses $ATOM | \
     while read FLAG ; do
-        echo -n ${FLAG#-}
-    done
+        echo -n " ${FLAG#-}"
+    done | \
+    sed 's/^ *//'
 }
 
 set -x
 atoms | \
+grep "$PATTERN" | \
 while read ATOM ; do
+    emerge --depclean
     USE=$( atom_use $ATOM )
     echo "$ATOM $USE" >/etc/portage/package.use/ethereum
     $EMERGE --onlydeps $ATOM
     FEATURES='test' emerge $ATOM
     emerge --unmerge $ATOM
-    emerge --depclean
 done
 

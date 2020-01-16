@@ -25,5 +25,5 @@ docker run --rm \
     --mount="type=bind,source=${HOST_DISTDIR},destination=/var/cache/distfiles" \
     --mount="type=bind,source=${CACHE_PKGDIR},destination=/var/cache/binpkgs" \
     gentoo-ethereum-test \
-    /bin/bash -l /root/container_test.sh
+    /bin/bash -l /root/container_test.sh ${1:-.}
 
