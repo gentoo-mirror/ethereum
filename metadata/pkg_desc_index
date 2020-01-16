@@ -1,2 +1,3 @@
 dev-cpp/ethash 0.5.1_alpha1: The Ethereum Proof of Work algorithm
+dev-cpp/evmc 7.1.0: Ethereum Client-VM Connector API
 dev-cpp/intx 0.5.0: Extended precision integer C++ library.
