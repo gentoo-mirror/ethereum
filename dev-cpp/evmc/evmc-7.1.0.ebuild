@@ -12,11 +12,7 @@ SRC_URI="https://github.com/ethereum/evmc/archive/v${PV}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="-test -tools -examples"
-
-# test: Perform unit tests during the test phase
-# tools: Also build the evmc-vmtester application
-# examples: Also build the libexample-vm.so sample
+IUSE="-test +tools -examples"
 
 PATCHES=(
 	"${FILESDIR}/${P}-do_not_hunt_gtest.patch"

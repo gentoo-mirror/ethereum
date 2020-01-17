@@ -46,7 +46,9 @@ atom_use() {
     local ATOM=$1
     equery -qCN uses $ATOM | \
     while read FLAG ; do
-        echo -n " ${FLAG#-}"
+        FLAG=${FLAG#-}
+        FLAG=${FLAG#+}
+        echo -n " ${FLAG}"
     done | \
     sed 's/^ *//'
 }
