@@ -6,4 +6,6 @@ dev-cpp/ethash:test - Execute unit tests during the test phase
 dev-cpp/evmc:examples - Also build the libexample-vm.so sample
 dev-cpp/evmc:test - Perform unit tests during the test phase
 dev-cpp/evmc:tools - Also build the evmc-vmtester application
+dev-cpp/evmone:test - Perform unit tests during the test phase
+dev-cpp/evmone:tools - Also build the evm-test application
 dev-cpp/intx:test - Execute unit tests during the test phase
