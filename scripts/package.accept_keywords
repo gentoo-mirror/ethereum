@@ -1,0 +1,4 @@
+dev-lang/solidity ~amd64
+dev-libs/antlr ~amd64
+dev-libs/antlr-c ~amd64
+sci-mathematics/cvc4 ~amd64

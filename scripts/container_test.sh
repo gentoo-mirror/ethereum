@@ -14,17 +14,17 @@ running_in_docker() {
 running_in_docker
 eselect news read --quiet
 
-EMERGE='emerge --buildpkg --usepkg --binpkg-respect-use=y'
+EMERGE_BIN='emerge --buildpkg --usepkg --binpkg-respect-use=y'
 which git 2>/dev/null || {
-    USE='-blksha1 -gpg -iconv -nls -pcre -pcre-jit -perl -threads -webdav' $EMERGE dev-vcs/git
+    USE='-blksha1 -gpg -iconv -nls -pcre -pcre-jit -perl -threads -webdav' $EMERGE_BIN dev-vcs/git
 }
 emerge --sync $REPO_NAME
 which equery 2>/dev/null || {
-    $EMERGE app-portage/gentoolkit
+    $EMERGE_BIN app-portage/gentoolkit
 }
 test "$REPO_BRANCH" = 'master' || {
     EROOT=$( portageq envvar EROOT )
-    REPO_PATH=$( portageq get_repo_path "$EROOT" ethereum )
+    REPO_PATH=$( portageq get_repo_path "$EROOT" "$REPO_NAME" )
     REPOS_DIR=$( dirname "$REPO_PATH" )
     REPO_URI=$( portageq repos_config "$EROOT" | sed -r -e "/\[${REPO_NAME}]/,/^$/"'!d' -e '/^sync-uri *=/!d' -e 's/.*= *//' )
     (
@@ -35,8 +35,12 @@ test "$REPO_BRANCH" = 'master' || {
     emerge --sync $REPO_NAME
 }
 
+which ccache 2>/dev/null || {
+    $EMERGE_BIN dev-util/ccache
+}
+
 atoms() {
-    portageq --repo=$REPO_NAME pquery | \
+    portageq --repo=$REPO_NAME pquery --no-filters | \
     while read EBUILD ; do
         echo "=${EBUILD}::${REPO_NAME}"
     done
@@ -60,8 +64,8 @@ while read ATOM ; do
     emerge --depclean
     USE=$( atom_use $ATOM )
     echo "$ATOM $USE" >/etc/portage/package.use/ethereum
-    $EMERGE --onlydeps $ATOM
-    FEATURES='test' emerge $ATOM
+    $EMERGE_BIN --onlydeps $ATOM
+    FEATURES='test ccache' CCACHE_DIR="/var/cache/ccache" CCACHE_SIZE="5G" emerge $ATOM
     emerge --unmerge $ATOM
 done
 
