@@ -8,7 +8,7 @@ inherit cmake-utils
 PV_SRC='0.5.1-alpha.1'
 DESCRIPTION="The Ethereum Proof of Work algorithm"
 HOMEPAGE="https://github.com/chfast/ethash"
-SRC_URI="https://github.com/chfast/ethash/archive/v${PV_SRC}.tar.gz"
+SRC_URI="https://github.com/chfast/ethash/archive/v${PV_SRC}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

@@ -7,7 +7,7 @@ inherit cmake-utils
 
 DESCRIPTION="Solidity, the contract-oriented programming language."
 HOMEPAGE="https://solidity.readthedocs.io/en/v${PV}/"
-SRC_URI="https://github.com/ethereum/solidity/releases/download/v${PV}/solidity_${PV}.tar.gz"
+SRC_URI="https://github.com/ethereum/solidity/releases/download/v${PV}/solidity_${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"

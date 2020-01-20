@@ -7,7 +7,7 @@ inherit cmake-utils
 
 DESCRIPTION="Fast Ethereum Virtual Machine implementation"
 HOMEPAGE="https://github.com/ethereum/evmone"
-SRC_URI="https://github.com/ethereum/evmone/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/ethereum/evmone/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
