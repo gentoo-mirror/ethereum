@@ -1,7 +1,7 @@
 # ethereum-gentoo-overlay
 This is a [Gentoo repository](https://overlays.gentoo.org/) containing packages related to the [Ethereum](https://ethereum.org) project.
 
-## Quick setup
+## Setup
 
 If absent in your system, install git:
 
@@ -21,7 +21,7 @@ Sync the added repository:
 
 ## Bugs
 
-Likely -- feel free to [file an issue](https://github.com/coolparadox/ethereum-gentoo-overlay/issues/new).
+Likely -- feel free to [file an issue](https://bugs.gentoo.org/enter_bug.cgi?product=Gentoo%20Linux&component=Overlays&short_desc=[ethereum%20overlay]%20%3Cbug%20summary%3E).
 Pull requests are also welcome.
 
 -----
