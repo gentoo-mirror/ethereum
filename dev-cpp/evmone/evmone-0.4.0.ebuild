@@ -22,13 +22,16 @@ PATCHES=(
 
 RDEPEND="dev-cpp/ethash"
 DEPEND="${RDEPEND}
-	dev-cpp/intx"
+	dev-cpp/intx
+	dev-cpp/evmc[tools]
+	tools? (
+		dev-cpp/gtest
+	)"
 BDEPEND="sys-devel/gcc
 	sys-devel/make
 	dev-util/cmake
 	test? (
 		dev-cpp/gtest
-		dev-cpp/evmc[tools]
 	)"
 
 src_configure() {
