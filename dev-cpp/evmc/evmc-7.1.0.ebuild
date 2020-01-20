@@ -7,7 +7,7 @@ inherit cmake-utils
 
 DESCRIPTION="Ethereum Client-VM Connector API"
 HOMEPAGE="https://github.com/ethereum/evmc"
-SRC_URI="https://github.com/ethereum/evmc/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/ethereum/evmc/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
