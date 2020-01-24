@@ -9,7 +9,6 @@ dev-cpp/evmc:tools - Also build the evmc-vmtester application
 dev-cpp/evmone:test - Perform unit tests during the test phase
 dev-cpp/evmone:tools - Also build the evm-test application
 dev-cpp/intx:test - Execute unit tests during the test phase
-dev-lang/solidity:cvc4 - Enable support for the CVC4 SMT solver
 dev-lang/solidity:lll - Also build lllc, Low-level Lisp compiler
 dev-lang/solidity:test - Perform tests during the test phase
 dev-lang/solidity:z3 - Enable support for the Z3 SMT solver
