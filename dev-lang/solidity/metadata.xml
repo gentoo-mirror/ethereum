@@ -17,6 +17,5 @@
 	<flag name="test">Perform tests during the test phase</flag>
 	<flag name="lll">Also build lllc, Low-level Lisp compiler</flag>
 	<flag name="z3">Enable support for the Z3 SMT solver</flag>
-	<flag name="cvc4">Enable support for the CVC4 SMT solver</flag>
 </use>
 </pkgmetadata>
