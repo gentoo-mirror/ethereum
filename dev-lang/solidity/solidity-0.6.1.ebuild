@@ -11,8 +11,8 @@ SRC_URI="https://github.com/ethereum/solidity/releases/download/v${PV}/solidity_
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="-test +lll -z3 -cvc4"
+KEYWORDS="amd64"
+IUSE="-test +lll -z3"
 
 PATCHES=(
 	"${FILESDIR}/${P}-require_cxx_17.patch"
@@ -20,8 +20,7 @@ PATCHES=(
 )
 
 DEPEND="dev-libs/boost
-	z3? ( sci-mathematics/z3 )
-	cvc4? ( sci-mathematics/cvc4 )"
+	z3? ( sci-mathematics/z3 )"
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gcc
 	sys-devel/make
@@ -36,7 +35,6 @@ src_configure() {
 	local DTESTS='ON' ; use test || DTESTS='OFF'
 	local DLLL='ON' ; use lll || DLLL='OFF'
 	local DUSE_Z3='ON' ; use z3 || DUSE_Z3='OFF'
-	local DUSE_CVC4='ON' ; use cvc4 || DUSE_CVC4='OFF'
 	local mycmakeargs=(
 		"-DBoost_USE_STATIC_LIBS=OFF"
 		"-DLLLC_LINK_STATIC=OFF"
@@ -46,7 +44,7 @@ src_configure() {
 		"-DTESTS=${DTESTS}"
 		"-DLLL=${DLLL}"
 		"-DUSE_Z3=${DUSE_Z3}"
-		"-DUSE_CVC4=${DUSE_CVC4}"
+		"-DUSE_CVC4=OFF"
 	)
 	cmake-utils_src_configure
 }
