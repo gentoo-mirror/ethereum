@@ -7,7 +7,7 @@ inherit cmake-utils
 
 DESCRIPTION="Extended precision integer C++ library."
 HOMEPAGE="https://github.com/chfast/intx"
-SRC_URI="https://github.com/chfast/intx/archive/v${PV}-dev.tar.gz -> ${P}-dev.tar.gz"
+SRC_URI="https://github.com/chfast/intx/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -20,8 +20,6 @@ BDEPEND="sys-devel/gcc
 	sys-devel/make
 	dev-util/cmake
 	test? ( dev-cpp/gtest )"
-
-S="${WORKDIR}/${P}-dev"
 
 src_configure() {
 	CMAKE_MAKEFILE_GENERATOR='emake'
